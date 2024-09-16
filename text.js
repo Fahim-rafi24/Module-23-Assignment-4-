@@ -61,3 +61,49 @@ function deleteInvalids(arr) {
     }
     return returnArr;
 }
+
+
+
+// No 04. Make A Great Password Function
+function password(obj) {
+    // 
+    if (Array.isArray(obj) === true) {
+        return "Invalid Object : Give me Correct Object";
+    }
+    // 
+    else if (typeof obj !== "object") {
+        return "Invalid Object : Give me Correct Object";
+    }
+    // main body
+    else{
+        if (Object.keys(obj).length !== 3) {
+            return "Please Provide All Correct Information ..";
+        }
+        else{
+            let result = '';
+            for (const key in obj) {
+                if (key === 'name') {
+                    result = result + obj[key] + '@';
+                }
+                else if (key === 'siteName') {
+                    let capitalizedSiteName = obj[key].charAt(0).toUpperCase() + obj[key].slice(1).toLowerCase();
+                    result = capitalizedSiteName + '#' + result;
+                    // result = obj[key] + '#' + result;
+                }
+                else if (key === 'birthYear') {
+                    let birthYearLength  = obj[key].toString().length;
+                    if (birthYearLength !== 4) {
+                        return "Please Provide Correct Year .."
+                    }
+                    else{
+                        result = result + obj[key];
+                    }
+                }
+                else{
+                    return "Please Provide Correct Element .."
+                }
+            }
+            return result;
+        }
+    }
+}
