@@ -107,3 +107,32 @@ function password(obj) {
         }
     }
 }
+
+
+
+//  No 05. Monthly Savings Calculator for a Freelancer
+function monthlySavings( arr , livingCost ) {
+    if (Array.isArray(arr) === true && typeof livingCost === 'number') {
+        let totalIncome = 0;
+        for (const num of arr) {
+            if (num >= 3000) {
+                // 20 % gov Tax 
+                totalIncome = totalIncome + ( ( num / 100 ) * 80 );
+            }
+            else{
+                totalIncome = totalIncome + num;
+            }
+        }
+        let savings = totalIncome - livingCost;
+        if (savings <= 0) {
+            return 'Earn More..'
+        }
+        else{
+            return savings;
+        }
+    }
+    else{
+        return 'Get Vallid Input First..'
+    }
+    
+}
