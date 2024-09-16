@@ -47,18 +47,17 @@ function checkName(name) {
 
 
 
-//  No 03. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//  No 03. Identify All Virus in my Array & Delete All Them In Array
+function deleteInvalids(arr) {
+    if (Array.isArray(arr) !== true) {
+        return "Invalid Object : Give me Correct Array";
+    }
+    // 
+    let returnArr = [];
+    for (const number of arr) {
+        if (typeof number == "number" && !isNaN(number)) {
+            returnArr.push(number);
+        }
+    }
+    return returnArr;
+}
